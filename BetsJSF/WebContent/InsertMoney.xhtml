@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>InsertMoney</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<table align="center">
+			<tr>
+				<td><h3>Insert Money</h3></td>
+			</tr>
+			<tr>
+				<td><h3>Money to insert:</h3></td>
+				<td><h:inputText id="money" value="#{user.money}" render="mezuak"></h:inputText></td>
+			</tr>
+			<tr>
+				<td><h:commandButton value="Insert" action="#{user.insertMoney}" /></td>
+				<td><h:commandButton value="Close" action="closeInsert"/></td>
+				<td><h:messages id="mezuak" style="color:blue" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>

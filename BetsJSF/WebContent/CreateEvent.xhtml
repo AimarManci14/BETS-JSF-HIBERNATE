@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Create Event</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<table align="center">
+			<tr>
+				<td><h3>Create Event</h3></td>
+			</tr>
+			<tr>
+				<td><h3>Description:</h3></td>
+				<td><h:inputText id="description" value="#{main.description}" render="mezuak"></h:inputText></td>
+			</tr>
+			<tr>
+				<td><h3>Year:</h3></td>
+				<td><h:inputText id="year" value="#{main.year}" render="mezuak"></h:inputText></td>
+			</tr>
+			<tr>
+				<td><h3>Month:</h3></td>
+				<td><h:inputText id="month" value="#{main.month}" render="mezuak"></h:inputText></td>
+			</tr>
+			<tr>
+				<td><h3>Day:</h3></td>
+				<td><h:inputText id="day" value="#{main.day}" render="mezuak"></h:inputText></td>
+			</tr>
+			<tr>
+				<td><h:commandButton value="Create" action="#{main.createEvent}" /></td>
+				<td><h:commandButton value="Close" action="closeCreateEvent" actionListener="#{main.emptyData}" /></td>
+				<td><h:messages id="mezuak" style="color:blue" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>

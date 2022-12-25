@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Show Events Calendar</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<td>Show Events: Select a day</td>
+		<td><h3>
+				Events:<br />
+				<h:outputText id="eguna" value="#{main.data}" />
+			</h3></td>
+		<table>
+			<tr>
+				<td>Event Date</td>
+				<td><p:calendar id="data" value="#{main.data}"
+						navigator="true" mode="inline">
+						<p:ajax event="dateSelect" listener="#{main.onDateSelect}"
+							update="eguna mezuak"></p:ajax>
+					</p:calendar></td>
+			</tr>
+		</table>
+		<p>
+			<h:commandButton value="Show Events"
+				action="showEvents" />
+		</p>
+		<h:messages id="mezuak" style="color:blue" />
+	</h:form>
+</h:body>
+</html>

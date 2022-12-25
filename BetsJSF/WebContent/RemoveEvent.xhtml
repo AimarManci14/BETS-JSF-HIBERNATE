@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Remove Event</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<td>Remove Event</td>
+		<td><h3>
+				Events:<br />
+				<h:outputText id="eguna" value="#{main.data}" />
+			</h3></td>
+		<table>
+			<tr>
+				<td>Event Date</td>
+				<td><p:calendar id="data" value="#{main.data}"
+						navigator="true" mode="inline">
+						<p:ajax event="dateSelect" listener="#{main.onDateSelect}"
+							update="eguna gertaeraTaula mezuak"></p:ajax>
+					</p:calendar></td>
+				<td>List of events</td>
+				<td><p:dataTable id="gertaeraTaula" value="#{main.events}"
+						var="item" border="1" selectionMode="single"
+						rowKey="#{item.eventNumber}" selection="#{main.ev}">
+						<p:ajax event="rowSelect" listener="#{main.onEventSelect}"></p:ajax>
+						<f:facet name="header"></f:facet>
+						<p:column>
+							<f:facet name="header">ID</f:facet>#{item.eventNumber}</p:column>
+						<p:column>
+							<f:facet name="header">Event</f:facet>#{item.description}</p:column>
+					</p:dataTable></td>
+			</tr>
+		</table>
+		<p>
+			<h:commandButton value="Remove Event"
+				action="#{main.removeEvent}" />
+			<h:commandButton value="Close" action="closeRemoveEvent"
+				actionListener="#{main.emptyData}" />
+		</p>
+		<h:messages id="mezuak" style="color:blue" />
+	</h:form>
+</h:body>
+</html>
